@@ -246,9 +246,9 @@ func DrawGame() {
                     rl.DrawLine(int32(offset.X+SquareSize), int32(offset.Y), int32(offset.X+SquareSize), int32(offset.Y+SquareSize), rl.LightGray)
                     rl.DrawLine(int32(offset.X), int32(offset.Y+SquareSize), int32(offset.X+SquareSize), int32(offset.Y+SquareSize), rl.LightGray)
                 case Full:
-                    rl.DrawRectangle(int32(offset.X), int32(offset.Y), SquareSize, SquareSize, rl.Gray)
+                    rl.DrawRectangle(int32(offset.X), int32(offset.Y), SquareSize, SquareSize, rl.Black)
                 case Moving:
-                    rl.DrawRectangle(int32(offset.X), int32(offset.Y), SquareSize, SquareSize, rl.DarkGray)
+                    rl.DrawRectangle(int32(offset.X), int32(offset.Y), SquareSize, SquareSize, rl.Black)
                 case Block:
                     rl.DrawRectangle(int32(offset.X), int32(offset.Y), SquareSize, SquareSize, rl.LightGray)
                 case Fading:
@@ -276,7 +276,7 @@ func DrawGame() {
                     rl.DrawLine(int32(offset.X+SquareSize), int32(offset.Y), int32(offset.X+SquareSize), int32(offset.Y+SquareSize), rl.LightGray)
                     rl.DrawLine(int32(offset.X), int32(offset.Y+SquareSize), int32(offset.X+SquareSize), int32(offset.Y+SquareSize), rl.LightGray)
                 } else if incomingPiece[i][j] == Moving {
-                    rl.DrawRectangle(int32(offset.X), int32(offset.Y), SquareSize, SquareSize, rl.Gray)
+                    rl.DrawRectangle(int32(offset.X), int32(offset.Y), SquareSize, SquareSize, rl.Black)
                 }
 
                 offset.X += SquareSize
@@ -413,7 +413,7 @@ func ResolveFallingMovement(detection *bool, pieceActive *bool) {
         }
     } else {
         // We move down the piece
-        for j := GridVerticalSize - 2; j > 0; j-- { // Adjusted loop to prevent index out of range
+        for j := GridVerticalSize - 2; j >= 0; j-- { // Adjusted loop to prevent index out of range
             for i := 1; i < GridHorizontalSize-1; i++ {
                 if grid[i][j] == Moving {
                     grid[i][j+1] = Moving
