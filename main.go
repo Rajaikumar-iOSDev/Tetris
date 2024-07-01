@@ -431,7 +431,7 @@ func ResolveLateralMovement() bool {
     collision := false
 
     // Piece movement
-    if rl.IsKeyDown(rl.KeyLeft) { // Move left
+    if rl.IsKeyPressed(rl.KeyLeft) { // Move left
         // Check if it is possible to move to the left
         for j := GridVerticalSize - 2; j >= 0; j-- {
             for i := 1; i < GridHorizontalSize-1; i++ {
@@ -456,7 +456,7 @@ func ResolveLateralMovement() bool {
             }
             piecePositionX--
         }
-    } else if rl.IsKeyDown(rl.KeyRight) { // Move right
+    } else if rl.IsKeyPressed(rl.KeyRight) { // Move right
         // Check if it is possible to move to the right
         for j := GridVerticalSize - 2; j >= 0; j-- {
             for i := 1; i < GridHorizontalSize-1; i++ {
